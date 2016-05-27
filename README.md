@@ -1,7 +1,7 @@
 # weather - angular single page app
-*Based on API openweathermap and timezonedb*
+*Used API openweathermap and timezonedb*
 
-Dev Tools: ES6, angular, ui-router, restangular, webpack
+This is just a simple single-page Angular app based ES6, angular, ui-router, restangular and webpack. App displaying weather data and forecasts based on a given location (city)
 
 ##Installation and Running
 
