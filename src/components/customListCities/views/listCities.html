@@ -1,0 +1,7 @@
+<ul class="cities-list">
+    <li ng-repeat="item in $ctrl.cityList track by $index">
+        <a ui-sref="weather({city: item})" ui-sref-active="active">
+            {{item}}
+        </a>
+    </li>
+</ul>
