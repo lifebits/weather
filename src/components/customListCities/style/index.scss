@@ -2,18 +2,54 @@
   position: relative;
   line-height: 3em;
 
+  a.edit-cities-list {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin-left: 10px;
+
+    &.active {
+      svg {
+        fill: #ca1629;
+      }
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: #555;
+    }
+  }
+
   li {
+    position: relative;
     display: inline-block;
     line-height: inherit;
     margin: 0 10px;
     text-transform: uppercase;
 
-    a {
+    a.cityName {
       text-decoration: none;
       color: #333;
 
       &.active {
         color: #000;
+      }
+    }
+
+    a.remove {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      text-decoration: none;
+      line-height: normal;
+      transform: translate(-50%, -40%);
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: #ca1629;
       }
     }
   }

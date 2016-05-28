@@ -16,8 +16,8 @@ class WeatherController {
             }
         );
 
-        this.saveCity = function(city) {
-            ListCitiesDataService.listCities = this.weather.location.city;
+        this.saveCity = function() {
+            ListCitiesDataService.addCity(this.weather.location.city);
         };
 
     }

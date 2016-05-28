@@ -2,9 +2,17 @@ class ListCitiesController {
 
     constructor(ListCitiesDataService) {
 
-        console.log("ListCities Init");
         this.cityList = ListCitiesDataService.listCities;
 
+        this.editListCitiesState = false;
+
+        this.changeEditListCitiesState = () => {
+            this.editListCitiesState = ( this.editListCitiesState == false )
+        };
+
+        this.removeCityFromCityList = (index) => {
+            ListCitiesDataService.removeCity(index);
+        };
     }
 
 }

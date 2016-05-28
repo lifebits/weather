@@ -1,28 +1,35 @@
-class ListCitiesData {
+class ListCitiesDataService {
 
     constructor($localStorage) {
 
-        this.localStorage = $localStorage;
-        this.localStorage.$default({
-            cityList: []
+        $localStorage.$default({
+            currentListCities: []
         });
 
-        this.currentListCities = [];
+        this.currentListCities = $localStorage.currentListCities || [];
 
-        //$localStorage.$reset();
+        this.addCity = (newCity) => {
+            let newCityExist = _.includes(this.currentListCities, newCity);
+
+            if (!newCityExist) {
+                this.currentListCities.push(newCity);
+            }
+        };
+
+        this.removeCity = (index) => {
+            let arr = this.currentListCities;
+            arr.splice(index, 1);
+        };
+
     }
 
     get listCities() {
-
-        if (this.localStorage.cityList.length != 0) {
-            this.currentListCities = this.localStorage.cityList
-        }
 
         return this.currentListCities;
 
     }
 
-    set listCities(newData) {
+    /*set listCities(newData) {
 
         let newDataExist = _.includes(this.currentListCities, newData);
         if (!newDataExist) {
@@ -30,10 +37,10 @@ class ListCitiesData {
             this.localStorage.cityList.push(newData);
         }
 
-    }
+    }*/
 
 }
 
-ListCitiesData.$inject = ['$localStorage'];
+ListCitiesDataService.$inject = ['$localStorage'];
 
-export default ListCitiesData;
+export default ListCitiesDataService;
