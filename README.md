@@ -8,3 +8,5 @@ This is just a simple single-page Angular app based ES6, angular, ui-router, res
     - git.clone
     - npm.install
     - npm run dev
+
+[live example](http://lifebits.ru/a/weather/)
