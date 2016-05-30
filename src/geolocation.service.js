@@ -1,11 +1,19 @@
 class GeolocationService {
 
-    constructor() {
+    constructor($http) {
 
         this.currentUserLocationCoords = {};
 
-        this.getCurrentUserPosition = function() {
+        this.getUserPosition = function() {
 
+            return this.tryNavigatorGeolocation().then(
+                result => result,
+                error => this.tryAPIGeolocation()
+            )
+
+        };
+
+        this.tryNavigatorGeolocation = function() {
             if (navigator.geolocation) {
                 return new Promise(function(resolve, reject) {
                     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -13,8 +21,13 @@ class GeolocationService {
             } else {
                 console.log("Geolocation is not supported");
             }
+        };
 
-        }
+        this.tryAPIGeolocation = function() {
+            return $http.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDCa1LUe1vOczX1hO_iGYgyo8p_jYuGOPU").then(
+                response => response
+            )
+        };
 
     }
 
@@ -23,13 +36,30 @@ class GeolocationService {
         return this.currentUserLocationCoords;
     }
 
-    set userLocationCoords(position) {
-        this.currentUserLocationCoords = {
-            lon: Math.round(position.coords.longitude),
-            lat: Math.round(position.coords.latitude)
-        };
+    set userLocationCoords(newPosition) {
+
+        let newCoords;
+
+        if ('data' in newPosition) {
+            newCoords = {
+                lon: Math.round(newPosition.data.location.lng),
+                lat: Math.round(newPosition.data.location.lat)
+            }
+        }
+
+        if ('coords' in newPosition) {
+            newCoords = {
+                lon: Math.round(newPosition.coords.longitude),
+                lat: Math.round(newPosition.coords.latitude)
+            }
+        }
+
+        this.currentUserLocationCoords = newCoords;
+
     }
 
 }
+
+GeolocationService.$inject = ['$http'];
 
 export default GeolocationService;

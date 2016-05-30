@@ -28,9 +28,9 @@ export default function routing($stateProvider) {
             resolve: {
                 weatherInit: ['GetWeatherService', 'TimeService', '$stateParams', 'GeolocationService',
                     function(GetWeatherService, TimeService, $stateParams, GeolocationService) {
-                        return GeolocationService.getCurrentUserPosition()
+                        return GeolocationService.getUserPosition()
                             .then(function(position) {
-                                GeolocationService.userLocationCoords = position;
+                                return GeolocationService.userLocationCoords = position;
                             }).then(
                                 () => GetWeatherService.getWeatherByGeoCoords(GeolocationService.userLocationCoords)
                             ).then(
