@@ -45,6 +45,7 @@ class GetWeatherService {
                     //console.log(weatherDay);
 
                     _.forIn(weatherDay, function(item, key) {
+
                         let maxTempDay = _.max(item.tempMax);
                         let minTempDay = _.min(item.tempMin);
                         let weatherIdDay;
@@ -62,6 +63,7 @@ class GetWeatherService {
                         weatherDay[key].maxTempDay = Math.round(maxTempDay);
                         weatherDay[key].minTempDay = Math.round(minTempDay);
                         weatherDay[key].weatherIconDay = 'wi-owm-' + weatherIdDay;
+
                     });
 
                     return weatherDay;

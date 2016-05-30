@@ -1,4 +1,5 @@
 'use strict';
+
 import './style/index.scss'
 
 import angular from 'angular'
