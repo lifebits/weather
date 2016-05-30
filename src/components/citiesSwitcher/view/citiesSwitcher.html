@@ -1,0 +1,20 @@
+<section class="cities-switcher">
+
+    <form ng-submit="$ctrl.changeCity()">
+
+        <span>{{::$ctrl.currentCountry}}</span>,
+        <span>
+            <input class="cities-switcher-name" type="text"
+                   ng-style="{'width': $ctrl.currentCityFieldWidth+'px'}"
+                   ng-model="$ctrl.currentCity" />
+            <p class="">Тестовый мессадж</p>
+        </span>
+        <span class="fake-cityName" style="visibility: hidden">
+            {{$ctrl.currentCity}}
+        </span>
+
+    </form>
+
+
+</section>
+

@@ -13,14 +13,16 @@ import routing from './app.config'
 
 import weather from './components/weatherSinglCity/index'
 import customListCities from './components/customListCities/index'
+import citiesSwitcher from './components/citiesSwitcher/index'
 
-angular.module('app', [uiRouter, 'ngStorage', 'restangular', weather, customListCities])
+angular.module('app', [uiRouter, 'ngStorage', 'restangular', weather, customListCities, citiesSwitcher])
 
     .config(routing)
 
     .component('pageNotFound', require('./404.component'))
 
     .factory('TimeZoneRestangular', require('./timezonedb.factory'))
+
     .service('GeolocationService', require('./geolocation.service'))
     .service('TimeService', require('./time.service'))
 
