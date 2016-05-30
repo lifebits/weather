@@ -1,0 +1,21 @@
+.pageNotFound {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background: #ff8a80;
+
+  span {
+    position: relative;
+    top: 200px;
+    line-height: 2em;
+    font-size: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &.error {
+      font-size: 1.6em;
+      font-style: italic;
+    }
+  }
+}
