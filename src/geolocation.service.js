@@ -24,7 +24,7 @@ class GeolocationService {
         };
 
         this.tryAPIGeolocation = function() {
-            return $http.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDCa1LUe1vOczX1hO_iGYgyo8p_jYuGOPU").then(
+            return $http.post("https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD0VmT8bIlTn48fCH1wwwoyNNdAkQ3n-QM").then(
                 response => response
             )
         };
