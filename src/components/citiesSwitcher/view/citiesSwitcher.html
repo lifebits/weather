@@ -1,13 +1,19 @@
 <section class="cities-switcher">
 
-    <form ng-submit="$ctrl.changeCity()">
+    <form name="form" ng-submit="$ctrl.changeCity()">
 
         <span>{{::$ctrl.currentCountry}}</span>,
         <span>
-            <input class="cities-switcher-name" type="text"
+            <input name="cityName" class="cities-switcher-name" type="text"
                    ng-style="{'width': $ctrl.currentCityFieldWidth+'px'}"
-                   ng-model="$ctrl.currentCity" />
-            <p class="">Тестовый мессадж</p>
+                   ng-focus="focus=true" ng-blur="focus=false"
+                   ng-model="$ctrl.currentCity" required/>
+            <p class="cities-help-block" ng-show="form.cityName.$pristine">
+                enter your city
+            </p>
+            <p class="cities-help-block red" ng-show="form.cityName.$dirty && focus">
+                press enter to continue
+            </p>
         </span>
         <span class="fake-cityName" style="visibility: hidden">
             {{$ctrl.currentCity}}

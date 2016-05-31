@@ -21,4 +21,16 @@
     color: #333333;
   }
 
+  .cities-help-block {
+    position: absolute;
+    font-size: 0.4em;
+    color: #333;
+    line-height: 1.6;
+    white-space: nowrap;
+
+    &.red {
+      color: #ca1629;
+    }
+  }
+
 }
